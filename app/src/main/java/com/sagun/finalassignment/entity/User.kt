@@ -3,8 +3,7 @@ package com.sagun.finalassignment.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-class User {
-    @Entity
+@Entity
     data class User(
         var fname: String? = null,
         var lname: String? = null,
@@ -14,4 +13,4 @@ class User {
         @PrimaryKey(autoGenerate = true)
         var userId: Int = 0
     }
-}
+

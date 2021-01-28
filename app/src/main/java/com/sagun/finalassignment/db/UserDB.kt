@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 import com.sagun.finalassignment.dao.UserDAO
 import com.sagun.finalassignment.entity.User
 
-class UserDB {
     @Database(
         entities = [(User::class)],
         version = 1,
@@ -37,4 +36,3 @@ class UserDB {
                 ).build()
         }
     }
-}
