@@ -90,6 +90,15 @@
                 android:textStyle="italic"
                 />
 
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:textStyle="italic"
+            />
+
             <Button
                 android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
