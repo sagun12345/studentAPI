@@ -46,7 +46,7 @@ class SignupActivity : AppCompatActivity() {
                     val user = User(fname, lname, username, password)
                     CoroutineScope(Dispatchers.IO).launch {
                         UserDB.getInstance(this@SignupActivity).getUserDAO().registerUser(user)
-                        //StudentDB.getInstance(this@RegisterUserActivity).getUserDAO().registerUser(user)
+                       
                     }
                     Toast.makeText(this, "User registered", Toast.LENGTH_SHORT).show()
                 }
