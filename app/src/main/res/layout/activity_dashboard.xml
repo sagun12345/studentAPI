@@ -7,11 +7,13 @@
     tools:context=".dashboard">
 
 
-<com.google.android.material.bottomappbar.BottomAppBar
+<com.google.android.material.bottomnavigation.BottomNavigationView
     android:id="@+id/bottomappbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
     tools:ignore="BottomAppBar"
+    app:menu="@menu/nav_menu"
     android:layout_gravity="bottom"
     />
 
