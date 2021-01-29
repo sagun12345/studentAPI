@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var loginbtn: Button
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,6 +40,9 @@ class MainActivity : AppCompatActivity() {
 
 
         loginbtn.setOnClickListener {
+            getSharedPref()
+            saveSharedPref()
+
             val username = username.text.toString()
             val password = Password.text.toString()
             var user: User?= null
@@ -71,5 +75,27 @@ class MainActivity : AppCompatActivity() {
 //
             }
         }
+    }
+    private fun saveSharedPref() {
+        val username = username.text.toString()
+        val password = Password.text.toString()
+        val sharedPref = getSharedPreferences("MyPref", MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putString("username", username)
+        editor.putString("password", password)
+        editor.apply()
+        Toast.makeText(
+                this@MainActivity,
+                "Username and password saved",
+                Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    private fun getSharedPref() {
+        val sharedPref = getSharedPreferences("MyPref", MODE_PRIVATE)
+        val username = sharedPref.getString("username", "")
+        val password = sharedPref.getString("password", "")
+        Toast.makeText(this, "Username : $username and password : $password", Toast.LENGTH_SHORT)
+                .show()
     }
 }
