@@ -11,14 +11,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/taskmanager" />
+        android:src="@drawable/sneaker" />
 
-    <TextView
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="Task Manager 1.0" />
+
 </LinearLayout>

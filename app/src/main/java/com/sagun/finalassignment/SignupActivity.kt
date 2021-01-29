@@ -31,6 +31,16 @@ class SignupActivity : AppCompatActivity() {
             btnlogin = findViewById(R.id.btnLogin)
             etConfirmPassword = findViewById(R.id.etConfirmPassword)
 
+
+            btnlogin.setOnClickListener {
+                startActivity(
+                        Intent(
+                                this@SignupActivity,
+                                MainActivity::class.java
+                        )
+                )
+            }
+
             btnsignup.setOnClickListener {
                 val fname = etfirstname.text.toString()
                 val lname = etlastname.text.toString()
