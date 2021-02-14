@@ -3,7 +3,7 @@ package com.sagun.finalassignment.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
+@Entity
     data class User(
         var _id:String? = null,
         var fname: String? = null,
