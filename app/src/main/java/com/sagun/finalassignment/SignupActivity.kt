@@ -4,11 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.sagun.finalassignment.Repository.UserRepository
 import com.sagun.finalassignment.db.UserDB
 import com.sagun.finalassignment.entity.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 class SignupActivity : AppCompatActivity() {
 
@@ -42,25 +45,44 @@ class SignupActivity : AppCompatActivity() {
             }
 
             btnsignup.setOnClickListener {
+
                 val fname = etfirstname.text.toString()
                 val lname = etlastname.text.toString()
                 val username = etusername.text.toString()
                 val password = etpassword.text.toString()
-                val Confirmpassword = etConfirmPassword.text.toString()
+                val confirmPassword = etConfirmPassword.text.toString()
 
-                if (password != Confirmpassword) {
+                if (password != confirmPassword) {
                     etpassword.error = "Password does not match"
                     etpassword.requestFocus()
                     return@setOnClickListener
                 } else {
-                    val user = User(fname, lname, username, password)
-                    CoroutineScope(Dispatchers.IO).launch {
-                        UserDB.getInstance(this@SignupActivity).getUserDAO().registerUser(user)
-                       
-                    }
-                    Toast.makeText(this, "User registered", Toast.LENGTH_SHORT).show()
-                }
 
+
+                    val user = User(fname,lname,username,password)
+                    user =
+                            User(fname = fname, lname = lname, username = username, password = password)
+                    CoroutineScope(Dispatchers.IO).launch {
+                        try {
+                            val userRepository = UserRepository()
+                            val response = userRepository.registerUser(user)
+                            if (response.success==true){
+                                withContext(Dispatchers.Main){
+                                    Toast.makeText(this@SignupActivity,"Register Bhayoo",Toast.LENGTH_SHORT).show()
+                                }
+
+                            }
+                        }catch (ex:Exception){
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(
+                                        this@RegisterActivity,
+                                        "Username cannot be duplicate", Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    }
+
+                }
             }
 
         }
