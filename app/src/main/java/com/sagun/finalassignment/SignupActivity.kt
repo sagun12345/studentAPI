@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import com.sagun.finalassignment.Repository.UserRepository
-import com.sagun.finalassignment.db.UserDB
 import com.sagun.finalassignment.entity.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -59,9 +58,8 @@ class SignupActivity : AppCompatActivity() {
                 } else {
 
 
-                    val user = User(fname,lname,username,password)
-                    user =
-                            User(fname = fname, lname = lname, username = username, password = password)
+                    var user =
+                        User(fname = fname, lname = lname, username = username, password = password)
                     CoroutineScope(Dispatchers.IO).launch {
                         try {
                             val userRepository = UserRepository()
@@ -75,7 +73,7 @@ class SignupActivity : AppCompatActivity() {
                         }catch (ex:Exception){
                             withContext(Dispatchers.Main) {
                                 Toast.makeText(
-                                        this@RegisterActivity,
+                                        this@SignupActivity,
                                         "Username cannot be duplicate", Toast.LENGTH_SHORT
                                 ).show()
                             }

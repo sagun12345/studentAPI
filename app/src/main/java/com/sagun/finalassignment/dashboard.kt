@@ -39,7 +39,7 @@ class dashboard : AppCompatActivity() {
 
     private fun requestPermission() {
         ActivityCompat.requestPermissions(
-                this@dashboard,
+                this,
                 permissions, 1
         )
     }

@@ -18,7 +18,7 @@ interface UserAPI {
     @FormUrlEncoded
     @POST("auth/login")
     suspend fun checkUser(
-        @Field("email") email:String,
+        @Field("username") username:String,
         @Field("password") password:String
 
 

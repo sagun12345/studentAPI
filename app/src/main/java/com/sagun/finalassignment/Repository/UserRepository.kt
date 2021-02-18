@@ -17,9 +17,9 @@ class UserRepository :
         }
     }
     //Login User
-    suspend fun loginUser(email : String,password : String) : LoginResponse{
+    suspend fun loginUser(username : String,password : String) : LoginResponse{
         return apiRequest {
-            UserAPI.checkUser(email,password)
+            UserAPI.checkUser(username,password)
         }
     }
 }
