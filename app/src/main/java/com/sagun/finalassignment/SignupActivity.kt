@@ -66,7 +66,7 @@ class SignupActivity : AppCompatActivity() {
                             val response = userRepository.registerUser(user)
                             if (response.success==true){
                                 withContext(Dispatchers.Main){
-                                    Toast.makeText(this@SignupActivity,"Register Bhayoo",Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this@SignupActivity,"User Registered",Toast.LENGTH_SHORT).show()
                                 }
 
                             }

@@ -1,4 +1,7 @@
 package com.sagun.finalassignment.response
 
-class AddShoesResponse {
-}
+
+data class AddShoesResponse (
+        val  success :Boolean? = null,
+        val  data :String? = null
+)

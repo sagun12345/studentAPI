@@ -1,4 +1,5 @@
 package com.sagun.finalassignment.response
 
-class DeleteShoesResponse {
-}
+data class DeleteShoesResponse (
+        val success : Boolean? =null
+)

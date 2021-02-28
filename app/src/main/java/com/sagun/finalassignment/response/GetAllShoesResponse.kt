@@ -1,4 +1,9 @@
 package com.sagun.finalassignment.response
 
-class GetAllShoesResponse {
-}
+import com.sagun.finalassignment.entity.Shoes
+
+data class GetAllShoesResponse (
+        val success :Boolean?=null,
+        val Count :Int?=null,
+        val data :MutableList<Shoes>?=null
+)

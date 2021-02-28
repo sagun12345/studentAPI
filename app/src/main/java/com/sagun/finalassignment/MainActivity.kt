@@ -3,6 +3,7 @@ package com.sagun.finalassignment
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import android.widget.Toast.makeText
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +22,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var loginbtn: Button
+    private lateinit var layout: ConstraintLayout
+
 
 
 
@@ -33,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     username = findViewById(R.id.username)
     password = findViewById(R.id.password)
     loginbtn = findViewById(R.id.loginbtn)
+        layout = findViewById(R.id.layout)
 
 
     signup.setOnClickListener {
@@ -63,16 +67,16 @@ class MainActivity : AppCompatActivity() {
                     finish()
                 } else {
                     withContext(Dispatchers.Main) {
-//                        val snack =
-//                                Snackbar.make(
-//                                        line,
-//                                        "Invalid credentials",
-//                                        Snackbar.LENGTH_LONG
-//                                )
-//                        snack.setAction("OK", View.OnClickListener {
-//                            snack.dismiss()
-//                        })
-//                        snack.show()
+                        val snack =
+                                Snackbar.make(
+                                      layout,
+                                       "Invalid credentials",
+                                     Snackbar.LENGTH_LONG
+                             )
+                       snack.setAction("OK", View.OnClickListener {
+                         snack.dismiss()
+                        })
+                      snack.show()
 
                         makeText(this@MainActivity, "Invalid credentials", Toast.LENGTH_SHORT).show()
                     }
