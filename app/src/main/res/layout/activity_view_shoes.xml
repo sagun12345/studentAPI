@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewShoesActivity">
-<TextView
-    android:layout_width="60dp"
-    android:layout_height="30dp"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
