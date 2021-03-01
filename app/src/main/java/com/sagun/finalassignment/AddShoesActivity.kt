@@ -160,7 +160,7 @@ class AddShoesActivity : AppCompatActivity() {
                 val response = shoesRepository.addShoes(shoes)
                 if(response.success == true){
                     if (imageUrl !=null) {
-                        uploadImage(response.data!!)
+                        uploadImage(response.data!!._id!!)
                     }
                     withContext(Dispatchers.Main) {
                         Toast.makeText(

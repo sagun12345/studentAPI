@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/background"
     android:scrollbars="none"
-    tools:context=".dashboard">
+    tools:context=".DashBoardActivity">
 
 
 
@@ -55,6 +55,7 @@
                     android:paddingBottom="20dp">
 
                     <ImageView
+                        android:id="@+id/home"
                         android:layout_width="90dp"
                         android:layout_height="80dp"
                         android:src="@drawable/home"

@@ -8,18 +8,19 @@ import retrofit2.http.*
 
 interface ShoesAPI {
 
-    @POST("auth/shoes")
+    @POST("add/shoes")
     suspend fun addShoes(
+            shoes1: String,
             @Body shoes: Shoes
-    ): Response<LoginResponse>
+    ): Response<AddShoesResponse>
 
 
-    @GET("Shoes/")
+    @GET("shoes/all")
     suspend fun getallShoes(
             @Header("Authorization") token: String
     ): Response<GetAllShoesResponse>
 
-    @DELETE("shoes/{id}")
+    @DELETE("student/{id}")
     suspend fun deleteShoes(
             @Header("Authorization") token: String,
             @Path("id") id:String

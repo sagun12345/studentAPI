@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(
                             Intent(
                                     this@MainActivity,
-                                    dashboard::class.java
+                                    DashBoardActivity::class.java
                             )
                     )
                     finish()

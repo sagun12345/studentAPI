@@ -17,7 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddShoesActivity"></activity>
+        <activity android:name=".ViewShoesActivity"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name=".AddShoesActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
@@ -28,14 +30,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".dashboard"
+            android:name=".DashBoardActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
         <activity
             android:name=".SignupActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
     </application>
 
 </manifest>

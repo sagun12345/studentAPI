@@ -1,11 +1,14 @@
 package com.sagun.finalassignment
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.core.app.ActivityCompat
 
-class dashboard : AppCompatActivity() {
+class DashBoardActivity : AppCompatActivity() {
+    private lateinit var home:ImageView
     private val permissions = arrayOf(
             android.Manifest.permission.CAMERA,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -16,8 +19,15 @@ class dashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        home=findViewById(R.id.home)
         if (!hasPermission()) {
             requestPermission()
+
+            home.setOnClickListener{
+                startActivity(Intent(this,ViewShoesActivity::class.java))
+            }
+
+
         }
     }
 

@@ -1,6 +1,7 @@
 package com.sagun.finalassignment.API
 
 
+import com.sagun.finalassignment.entity.Shoes
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

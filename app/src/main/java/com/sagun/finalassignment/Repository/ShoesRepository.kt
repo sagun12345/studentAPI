@@ -13,10 +13,11 @@ class ShoesRepository :
     private val ShoesAPI = ServiceBuilder.buildService(ShoesAPI::class.java)
 
     //Add shoes
-    suspend fun addShoes(shoes: Shoes):AddShoesResponse{
+    suspend fun addShoes(shoes: Shoes):AddShoesResponse {
         return apiRequest {
-            ShoesAPI.addShoes(
+            ShoesAPI.addShoes  (
                     ServiceBuilder.token!!, shoes
+
             )
         }
     }
@@ -25,7 +26,6 @@ class ShoesRepository :
     suspend fun getAllShoes(): GetAllShoesResponse {
         return apiRequest {
             ShoesAPI.getallShoes(ServiceBuilder.token!!)
-
         }
     }
     suspend fun deleteShoes(id:String): DeleteShoesResponse {
