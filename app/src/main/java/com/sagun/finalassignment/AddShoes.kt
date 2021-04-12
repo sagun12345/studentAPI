@@ -10,10 +10,10 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
-import com.google.android.material.textfield.TextInputEditText
 import com.sagun.finalassignment.Repository.ShoesRepository
 import com.sagun.finalassignment.entity.Shoes
 import kotlinx.coroutines.CoroutineScope
@@ -29,18 +29,18 @@ import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AddShoesActivity : AppCompatActivity() {
-    private lateinit var etName: TextInputEditText
-    private lateinit var etPrice: TextInputEditText
-    private lateinit var etSize: TextInputEditText
-    private lateinit var etCompany: TextInputEditText
-    private lateinit var etAddress: TextInputEditText
+class AddShoes : AppCompatActivity() {
+
+    private lateinit var etName: EditText
+    private lateinit var etPrice: EditText
+    private lateinit var etSize: EditText
+    private lateinit var etCompany: EditText
+    private lateinit var etAddress: EditText
     private lateinit var btnSave: Button
     private lateinit var imgProfile: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_shoes)
-
 
         etName = findViewById(R.id.etName)
         etPrice = findViewById(R.id.etPrice)
@@ -48,6 +48,7 @@ class AddShoesActivity : AppCompatActivity() {
         etCompany = findViewById(R.id.etCompany)
         etAddress = findViewById(R.id.etAddress)
         btnSave = findViewById(R.id.btnSave)
+        imgProfile = findViewById(R.id.imgProfile)
 
         btnSave.setOnClickListener {
             saveShoes()
@@ -58,7 +59,9 @@ class AddShoesActivity : AppCompatActivity() {
             loadPopUpMenu()
 
         }
+
     }
+
 
     private fun loadPopUpMenu() {
         val popupMenu = PopupMenu(this, imgProfile)
@@ -73,19 +76,12 @@ class AddShoesActivity : AppCompatActivity() {
             true
         }
         popupMenu.show()
-
     }
-
-
-    private var REQUEST_GALLERY_CODE = 0
-    private var REQUEST_CAMERA_CODE = 1
-    private var imageUrl: String? = null
 
     private fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, REQUEST_GALLERY_CODE)
-
     }
 
     private fun openCamera() {
@@ -93,6 +89,9 @@ class AddShoesActivity : AppCompatActivity() {
         startActivityForResult(cameraIntent, REQUEST_CAMERA_CODE)
     }
 
+    private var REQUEST_GALLERY_CODE = 0
+    private var REQUEST_CAMERA_CODE = 1
+    private var imageUrl: String? = null
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -102,7 +101,7 @@ class AddShoesActivity : AppCompatActivity() {
                 val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
                 val contentResolver = contentResolver
                 val cursor =
-                    contentResolver.query(selectedImage!!, filePathColumn, null, null, null)
+                        contentResolver.query(selectedImage!!, filePathColumn, null, null, null)
                 cursor!!.moveToFirst()
                 val columnIndex = cursor.getColumnIndex(filePathColumn[0])
                 imageUrl = cursor.getString(columnIndex)
@@ -124,8 +123,8 @@ class AddShoesActivity : AppCompatActivity() {
         var file: File? = null
         return try {
             file = File(
-                getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-                    .toString() + File.separator + fileNameToSave
+                    getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+                            .toString() + File.separator + fileNameToSave
             )
             file.createNewFile()
             //Convert bitmap to byte array
@@ -143,7 +142,6 @@ class AddShoesActivity : AppCompatActivity() {
             file // it will return null
         }
     }
-
 
     private fun saveShoes() {
         val Name = etName.text.toString()
@@ -164,21 +162,22 @@ class AddShoesActivity : AppCompatActivity() {
                     }
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
-                            this@AddShoesActivity,
-                            "Add Student bhayo", Toast.LENGTH_SHORT
+                                this@AddShoes,
+                                "Add Student bhayo", Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
             } catch (ex: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
-                        this@AddShoesActivity,ex.toString(), Toast.LENGTH_SHORT
+                            this@AddShoes,ex.toString(), Toast.LENGTH_SHORT
                     ).show()
                 }
             }
         }
     }
-    private fun uploadImage(studentId: String) {
+
+    private fun uploadImage(shoesId: String) {
         if (imageUrl != null) {
             val file = File(imageUrl!!)
             val reqFile =
@@ -188,10 +187,10 @@ class AddShoesActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     val shoesRepository = ShoesRepository()
-                    val response = shoesRepository.uploadImage(studentId, body)
+                    val response = shoesRepository.uploadImage(shoesId, body)
                     if (response.success == true) {
                         withContext(Dispatchers.Main) {
-                            Toast.makeText(this@AddShoesActivity, "Uploaded", Toast.LENGTH_SHORT)
+                            Toast.makeText(this@AddShoes, "Uploaded", Toast.LENGTH_SHORT)
                                     .show()
                         }
                     }
@@ -199,7 +198,7 @@ class AddShoesActivity : AppCompatActivity() {
                     withContext(Dispatchers.Main) {
                         Log.d(" Error ", ex.localizedMessage)
                         Toast.makeText(
-                                this@AddShoesActivity,
+                                this@AddShoes,
                                 ex.localizedMessage,
                                 Toast.LENGTH_SHORT
                         ).show()
@@ -207,7 +206,6 @@ class AddShoesActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
-
 }
-

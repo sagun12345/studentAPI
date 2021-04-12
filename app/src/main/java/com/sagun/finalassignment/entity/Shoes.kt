@@ -2,8 +2,7 @@ package com.sagun.finalassignment.entity
 
 
 
-    data class Shoes(
-
+data class Shoes(
         val _id:String? = null,
         val name: String? = null,
         val price: String? = null,

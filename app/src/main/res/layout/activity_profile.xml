@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:padding="40dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/signup_background"
@@ -18,12 +19,13 @@
             android:background="#03f8fc"
             android:fontFamily="@font/abhaya_libre"
             android:gravity="center"
-            android:text="Sign Up"
+            android:text="Profile"
             android:textColor="@color/black"
             android:textSize="28sp"
             android:textStyle="bold" />
 
         <TextView
+            android:layout_marginTop="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/aclonica"
@@ -71,59 +73,15 @@
             android:inputType="text"
             android:textStyle="italic" />
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/aclonica"
-            android:text="Password"
-            android:textStyle="italic" />
-
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/aclonica"
-            android:hint="Enter Password"
-            android:inputType="textPassword"
-            android:textStyle="italic" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/aclonica"
-            android:text="Confirm Password"
-            android:textStyle="italic" />
-
-        <EditText
-            android:id="@+id/etConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/aclonica"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:textStyle="italic" />
-
         <Button
-            android:id="@+id/btnSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/btnupdate"
+            android:text="UPDATE"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#03f8fc"
-            android:fontFamily="@font/aclonica"
-            android:text="Register" />
-
-        <Button
-            android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#00000000"
-            android:fontFamily="@font/amaranth"
-            android:text="Already have account? Login"
-            android:textColor="@color/black" />
-        </LinearLayout>
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
 
 </ScrollView>

@@ -69,7 +69,6 @@
         android:layout_marginRight="4dp"
         android:scaleType="fitCenter"
         android:backgroundTint="#AF2641"
-        android:src="@drawable/ic_delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,7 +78,6 @@
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_update"
         tools:layout_editor_absoluteX="289dp"
         tools:layout_editor_absoluteY="10dp"
         tools:ignore="MissingConstraints,VectorDrawableCompat" />

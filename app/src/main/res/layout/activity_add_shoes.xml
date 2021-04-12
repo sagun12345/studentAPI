@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/details_background"
     >
 
     <LinearLayout
@@ -12,113 +14,109 @@
         android:orientation="vertical">
 
 
-
         <TextView
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Shoes Details" />
+            android:layout_marginBottom="10dp"
+            android:background="@color/design_default_color_secondary"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="Shoes Details"
+            android:textSize="30sp"
+            android:textStyle="bold" />
         <ImageView
             android:id="@+id/imgProfile"
             android:src="@drawable/nike"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputEditText
+
+            <EditText
                 android:id="@+id/etName"
-                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="Shoes Name" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:background="@color/white"
+                android:fontFamily="@font/aclonica"
+                android:hint="Shoes Name"
+                android:textSize="20dp" />
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputEditText
+
+
+            <EditText
                 android:id="@+id/etPrice"
-                android:background="@color/white"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
+                android:background="@color/white"
+                android:fontFamily="@font/aclonica"
                 android:hint="Shoes Price"
-                android:inputType="number" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:inputType="number"
+                android:textSize="20dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputEditText
+
+            <EditText
                 android:id="@+id/etSize"
-                android:background="@color/white"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
+                android:background="@color/white"
+                android:fontFamily="@font/aclonica"
                 android:hint="Shoes Size"
-                android:inputType="number" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:inputType="number"
+                android:textSize="20dp" />
 
-        <TextView
+
+        <EditText
             android:id="@+id/etCompany"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:text="Shoes company"
-            android:textSize="15sp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:inputType="number"
-            android:textStyle="bold" />
+            android:background="@color/white"
+            android:fontFamily="@font/aclonica"
+            android:hint="Shoes company"
+
+            android:textSize="20dp" />
 
 
 
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/etAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:background="@color/white"
-                android:layout_marginBottom="20dp"
-
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="Address" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginBottom="20dp"
+                android:background="@color/white"
+                android:fontFamily="@font/aclonica"
+                android:hint="Address"
+                android:textSize="20dp" />
 
         <Button
             android:id="@+id/btnSave"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="90dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/roundedbutton"
+            android:background="@color/teal_200"
+            android:fontFamily="@font/aclonica"
             android:text="Add Shoes"
             android:textColor="#FFFFFF" />
     </LinearLayout>
-</ScrollView>
+</LinearLayout>

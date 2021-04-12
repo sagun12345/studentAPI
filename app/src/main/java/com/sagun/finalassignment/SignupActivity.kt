@@ -20,7 +20,7 @@ class SignupActivity : AppCompatActivity() {
     private  lateinit var etpassword: EditText
     private lateinit var btnsignup: Button
     private lateinit var btnlogin: Button
-    private lateinit var etConfirmPassword: TextView
+    private lateinit var etConfirmPassword: EditText
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
