@@ -34,11 +34,11 @@ class UserRepository :
         }
     }
 
-//    suspend fun updateUser(id:String, user: User ): UpdateUserResponse {
-//        return apiRequest {
-//            UserAPI.updateUser(id, user)
-//        }
-//    }
+    suspend fun updateUser(id:String, user: User ): UpdateUserResponse {
+        return apiRequest {
+            UserAPI.updateUser(id, user)
+        }
+    }
 
     suspend fun userImageUpload(id: String, body: MultipartBody.Part)
             : ImageResponse {
