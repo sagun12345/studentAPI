@@ -11,7 +11,7 @@ import androidx.core.app.ActivityCompat
 class DashBoardActivity : AppCompatActivity() {
     private lateinit var home:ImageView
     private lateinit var logout:ImageView
-    private lateinit var category:ImageView
+    private lateinit var viewShoes:ImageView
     private lateinit var shoes: LinearLayout
     private lateinit var profile: LinearLayout
     private val permissions = arrayOf(
@@ -26,7 +26,7 @@ class DashBoardActivity : AppCompatActivity() {
 
         home=findViewById(R.id.home)
         logout=findViewById(R.id.imglogout)
-        category=findViewById(R.id.imgCategory)
+        viewShoes=findViewById(R.id.viewShoes)
         shoes=findViewById(R.id.shoes)
         profile=findViewById(R.id.profile)
 
@@ -34,8 +34,20 @@ class DashBoardActivity : AppCompatActivity() {
             startActivity(Intent(this@DashBoardActivity, MainActivity::class.java))
         }
 
-        category.setOnClickListener {
-            startActivity(Intent(this@DashBoardActivity, MainActivity::class.java))
+        home.setOnClickListener {
+            startActivity(Intent(this@DashBoardActivity, AddShoes::class.java))
+        }
+
+        shoes.setOnClickListener{
+            startActivity(Intent(this@DashBoardActivity,AllShoes::class.java))
+        }
+
+        profile.setOnClickListener{
+            startActivity(Intent(this@DashBoardActivity,ProfileActivity::class.java))
+        }
+
+        viewShoes.setOnClickListener {
+            startActivity(Intent(this@DashBoardActivity, AllShoes::class.java))
         }
         if (!hasPermission()) {
             requestPermission()
@@ -44,13 +56,7 @@ class DashBoardActivity : AppCompatActivity() {
 //                startActivity(Intent(this@DashBoardActivity,ViewShoesActivity::class.java))
 //            }
 
-            shoes.setOnClickListener{
-                startActivity(Intent(this@DashBoardActivity,AllShoes::class.java))
-            }
 
-            profile.setOnClickListener{
-                startActivity(Intent(this@DashBoardActivity,ProfileActivity::class.java))
-            }
         }
     }
 

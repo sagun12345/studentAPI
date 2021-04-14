@@ -1,2 +1,4 @@
+include ':shoeslibrary'
+include ':shoesos'
 include ':app'
 rootProject.name = "FinalAssignment"

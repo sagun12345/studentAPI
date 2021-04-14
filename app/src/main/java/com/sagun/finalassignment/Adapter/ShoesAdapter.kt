@@ -25,7 +25,7 @@ class ShoesAdapter (
     private val context: Context
 ): RecyclerView.Adapter<ShoesAdapter.ShoesViewHolder>() {
     class ShoesViewHolder (view: View): RecyclerView.ViewHolder(view) {
-        val btnDelete: ImageButton = view.findViewById(R.id.btnDelete)
+//        val btnDelete: ImageButton = view.findViewById(R.id.btnDelete)
         val imgProfile: CircleImageView = view.findViewById(R.id.imgProfile)
         val tvName: TextView = view.findViewById(R.id.tvName)
         val tvPrice: TextView = view.findViewById(R.id.tvPrice)
@@ -58,47 +58,47 @@ class ShoesAdapter (
                 .into(holder.imgProfile)
         }
         //deleteUser
-        holder.btnDelete.setOnClickListener{
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle("Delete shoes")
-            builder.setMessage("Are you sure you want to delete ${shoes.name} ??")
-            builder.setIcon(android.R.drawable.ic_delete)
-            builder.setPositiveButton("Yes") { _, _ ->
-                CoroutineScope(Dispatchers.IO).launch {
-                    try {
-                        val userRepository = ShoesRepository()
-                        val response = userRepository.deleteShoes(shoes._id!!)
-                        if (response.success == true) {
-                            withContext(Dispatchers.Main) {
-                                Toast.makeText(
-                                    context,
-                                    "Student Deleted",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                            withContext(Dispatchers.Main) {
-                                lstShoes.remove(shoes)
-                                notifyDataSetChanged()
-                            }
-                        }
-                    } catch (ex: Exception) {
-                        withContext(Dispatchers.Main) {
-                            Toast.makeText(
-                                context,
-                                ex.toString(),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-                }
-            }
-            builder.setNegativeButton("No") { _, _ ->
-            }
-            val alertDialog: AlertDialog = builder.create()
-            alertDialog.setCancelable(false)
-            alertDialog.show()
-
-        }
+//        holder.btnDelete.setOnClickListener{
+//            val builder = AlertDialog.Builder(context)
+//            builder.setTitle("Delete shoes")
+//            builder.setMessage("Are you sure you want to delete ${shoes.name} ??")
+//            builder.setIcon(android.R.drawable.ic_delete)
+//            builder.setPositiveButton("Yes") { _, _ ->
+//                CoroutineScope(Dispatchers.IO).launch {
+//                    try {
+//                        val userRepository = ShoesRepository()
+//                        val response = userRepository.deleteShoes(shoes._id!!)
+//                        if (response.success == true) {
+//                            withContext(Dispatchers.Main) {
+//                                Toast.makeText(
+//                                    context,
+//                                    "Student Deleted",
+//                                    Toast.LENGTH_SHORT
+//                                ).show()
+//                            }
+//                            withContext(Dispatchers.Main) {
+//                                lstShoes.remove(shoes)
+//                                notifyDataSetChanged()
+//                            }
+//                        }
+//                    } catch (ex: Exception) {
+//                        withContext(Dispatchers.Main) {
+//                            Toast.makeText(
+//                                context,
+//                                ex.toString(),
+//                                Toast.LENGTH_SHORT
+//                            ).show()
+//                        }
+//                    }
+//                }
+//            }
+//            builder.setNegativeButton("No") { _, _ ->
+//            }
+//            val alertDialog: AlertDialog = builder.create()
+//            alertDialog.setCancelable(false)
+//            alertDialog.show()
+//
+//        }
 
 
     }

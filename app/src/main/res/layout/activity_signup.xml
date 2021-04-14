@@ -86,6 +86,7 @@
             android:fontFamily="@font/aclonica"
             android:hint="Enter Password"
             android:inputType="textPassword"
+            android:drawableLeft="@drawable/ic_lock"
             android:textStyle="italic" />
 
         <TextView
@@ -101,6 +102,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/aclonica"
             android:hint="Confirm Password"
+            android:drawableLeft="@drawable/ic_lock"
             android:inputType="textPassword"
             android:textStyle="italic" />
 
