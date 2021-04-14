@@ -40,10 +40,10 @@ class UserRepository :
 //        }
 //    }
 
-//    suspend fun userImageUpload(id: String, body: MultipartBody.Part)
-//            : ImageResponse {
-//        return apiRequest {
-//            UserAPI.userImageUpload(id, body)
-//        }
-//    }
+    suspend fun userImageUpload(id: String, body: MultipartBody.Part)
+            : ImageResponse {
+        return apiRequest {
+            UserAPI.userImageUpload(id, body)
+        }
+    }
 }
