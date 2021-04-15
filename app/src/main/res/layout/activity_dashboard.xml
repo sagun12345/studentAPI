@@ -170,12 +170,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:id="@+id/cart"
                 android:layout_weight="1"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="5dp">
 
                 <LinearLayout
+                    android:id="@+id/cart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"

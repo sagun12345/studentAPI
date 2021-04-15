@@ -14,6 +14,7 @@ class DashBoardActivity : AppCompatActivity() {
     private lateinit var viewShoes:ImageView
     private lateinit var shoes: LinearLayout
     private lateinit var profile: LinearLayout
+    private lateinit var cart: LinearLayout
     private val permissions = arrayOf(
             android.Manifest.permission.CAMERA,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -29,6 +30,11 @@ class DashBoardActivity : AppCompatActivity() {
         viewShoes=findViewById(R.id.viewShoes)
         shoes=findViewById(R.id.shoes)
         profile=findViewById(R.id.profile)
+        cart=findViewById(R.id.cart)
+
+        cart.setOnClickListener {
+            startActivity(Intent(this@DashBoardActivity, CartActivity::class.java))
+        }
 
         logout.setOnClickListener {
             startActivity(Intent(this@DashBoardActivity, MainActivity::class.java))

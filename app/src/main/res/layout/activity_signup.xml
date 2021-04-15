@@ -23,6 +23,33 @@
             android:textSize="28sp"
             android:textStyle="bold" />
 
+
+        <ImageView
+            android:layout_width="358dp"
+            android:layout_height="100dp"
+
+            android:src="@drawable/shoes"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee"
+            android:text="Welcome"
+            android:textSize="40dp"
+
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="118dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Acccount"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/delius_swash_caps"
+            android:layout_marginTop="-20dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
