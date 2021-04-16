@@ -1,6 +1,10 @@
 package com.sagun.finalassignment
 
 import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -16,13 +20,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),SensorEventListener {
 
     private lateinit var signup: TextView
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var loginbtn: Button
     private lateinit var layout: ConstraintLayout
+    private lateinit var sensorManager: SensorManager
+    private var sensor: Sensor? = null
 
 
 
@@ -37,6 +43,9 @@ class MainActivity : AppCompatActivity() {
     password = findViewById(R.id.password)
     loginbtn = findViewById(R.id.loginbtn)
         layout = findViewById(R.id.layout)
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+
+
 
 
     signup.setOnClickListener {
@@ -48,8 +57,40 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        if (!checkSensor())
+            return
+        else {
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
+        }
+
     }
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+    }
+
+    private fun checkSensor(): Boolean {
+        var flag = true
+        if (sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY) == null) {
+            flag = false
+        }
+        return flag
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        val values = event!!.values[0]
+
+
+
+        if(values<=4)
+            login()
+        else
+            Toast.makeText(this@MainActivity,"najik jau nah bro ",Toast.LENGTH_LONG).show()
+
+
+    }
+
     private fun login() {
+
         val username = username.text.toString()
         val password = password.text.toString()
         CoroutineScope(Dispatchers.IO).launch {

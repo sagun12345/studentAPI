@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -15,6 +16,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.sagun.finalassignment.Repository.ShoesRepository
 import com.sagun.finalassignment.Repository.UserRepository
 import com.sagun.finalassignment.entity.Shoes
@@ -119,6 +122,7 @@ class AddShoes : AppCompatActivity() {
                                 this@AddShoes,
                                 "Added Shoes!!", Toast.LENGTH_SHORT
                         ).show()
+                        showHighPriorityNotification()
                     }
                 }
             } catch (ex: Exception) {
@@ -213,5 +217,22 @@ class AddShoes : AppCompatActivity() {
             e.printStackTrace()
             file // it will return null
         }
+    }
+    private fun showHighPriorityNotification() {
+
+        val notificationManager = NotificationManagerCompat.from(this)
+
+        val notificationChannels = NotificationChannels(this)
+        notificationChannels.createNotificationChannels()
+
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_1)
+                .setSmallIcon(R.drawable.ic_lock)
+                .setContentTitle("High priority notification")
+                .setContentText("This is my notification body")
+                .setColor(Color.BLUE)
+                .build()
+
+        notificationManager.notify(1, notification)
+
     }
 }
